@@ -24,6 +24,10 @@ public class AirbrakeNotifier {
 	}
 
 	private String url;
+        
+        private int connectTimeout;
+        
+        private int readTimeout;
 
 	public AirbrakeNotifier() {
 		setUrl("http://api.airbrake.io/notifier_api/v2/notices");
@@ -38,6 +42,13 @@ public class AirbrakeNotifier {
 		connection.setRequestProperty("Content-type", "text/xml");
 		connection.setRequestProperty("Accept", "text/xml, application/xml");
 		connection.setRequestMethod("POST");
+                if (connectTimeout > 0) {
+                    connection.setConnectTimeout(connectTimeout);
+                }
+                if (readTimeout > 0) {
+                    connection.setReadTimeout(readTimeout);
+                }
+                
 	}
 
 	private HttpURLConnection createConnection() throws IOException {
@@ -71,4 +82,14 @@ public class AirbrakeNotifier {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
+        public void setConnectTimeout(int connectTimeout) {
+            this.connectTimeout = connectTimeout;
+        }
+
+        public void setReadTimeout(int readTimeout) {
+            this.readTimeout = readTimeout;
+        }
+        
+        
 }

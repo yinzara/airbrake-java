@@ -81,6 +81,14 @@ public class AirbrakeAppender extends AppenderSkeleton {
 	public void setUrl(final String url) {
 		airbrakeNotifier.setUrl(url);
 	}
+        
+        public void setRead_timeout(final int readTimeout) {
+                airbrakeNotifier.setReadTimeout(readTimeout);
+        }
+        
+        public void setConnect_timeout(final int connectTimeout) {
+                airbrakeNotifier.setConnectTimeout(connectTimeout);
+        }
 
 	/**
 	 * Checks if the LoggingEvent contains a Throwable
