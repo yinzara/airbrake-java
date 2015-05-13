@@ -14,6 +14,8 @@ public class AirbrakeAppender extends AppenderSkeleton {
 	private String apiKey;
 
 	private String env;
+   
+   private String projectRoot;
 
 	private boolean enabled;
 
@@ -50,7 +52,7 @@ public class AirbrakeAppender extends AppenderSkeleton {
 
 	public AirbrakeNotice newNoticeFor(final Throwable throwable) {
 		return new AirbrakeNoticeBuilderUsingFilteredSystemProperties(apiKey,
-				backtrace, throwable, env).newNotice();
+				backtrace, throwable, env, projectRoot).newNotice();
 	}
 
 	private int notifyThrowableIn(final LoggingEvent loggingEvent) {
@@ -88,6 +90,10 @@ public class AirbrakeAppender extends AppenderSkeleton {
         
         public void setConnect_timeout(final int connectTimeout) {
                 airbrakeNotifier.setConnectTimeout(connectTimeout);
+        }
+        
+        public void setProject_root(final String projectRoot) {
+                this.projectRoot = projectRoot;
         }
 
 	/**
@@ -130,4 +136,9 @@ public class AirbrakeAppender extends AppenderSkeleton {
 	protected String getEnv() {
 		return env;
 	}
+
+    public String getProjectRoot() {
+        return projectRoot;
+    }
+   
 }
