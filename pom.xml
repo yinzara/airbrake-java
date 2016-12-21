@@ -1,62 +1,32 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>9</version>
-    </parent>
-    <groupId>io.airbrake</groupId>
-    <artifactId>airbrake-java-vocera</artifactId>
+
+    <artifactId>airbrake-java-goji</artifactId>
     <packaging>jar</packaging>
     <version>2.2.11-SNAPSHOT</version>
-    <name>Airbrake Notifier Java</name>
-    <description>This is the Vocera ported library to notify exception to Airbrake.io</description>
-    <url>https://airbrake.io</url>
+    <parent>
+        <groupId>com.goji</groupId>
+        <artifactId>goji-root</artifactId>
+        <version>0.1.16</version>
+    </parent>
     <scm>
-        <url>scm:git:git@github.com:yinzara/airbrake-java.git</url>
-        <connection>scm:git:git@github.com:yinzara/airbrake-java.git</connection>
-        <developerConnection>scm:git:git@github.com:yinzara/airbrake-java.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
-    <distributionManagement>
-        <repository>
-            <id>codewaretech.release</id>
-            <url>http://dev.codewaretech.com/artifactory/libs-release-local</url>
-        </repository>
-    </distributionManagement>
+        <connection>scm:git:git://bitbucket.org/consumerunited/${project.artifactId}.git</connection>
+        <developerConnection>scm:git:git@bitbucket.org:consumerunited/${project.artifactId}.git</developerConnection>
+        <url>https://bitbucket.org/consumerunited/${project.artifactId}.git</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <name>crm-root</name>
     
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-    <developers>
-        <developer>
-            <id>mmorrissette</id>
-            <name>Matt Morrissette</name>
-            <email>mmorrissette@vocera.com</email>
-            <url>https://github.com/yinzara</url>
-        </developer>
-    </developers>
+    <url>http://consumerunited.bitbucket.org/${project.artifactId}</url>
+   
     <dependencies>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.1.1</version>
-        </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.4</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.14</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -75,6 +45,11 @@
             <artifactId>hamcrest-all</artifactId>
             <version>1.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
     </dependencies>
     <build>
