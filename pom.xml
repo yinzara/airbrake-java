@@ -17,7 +17,7 @@
         <tag>HEAD</tag>
     </scm>
 
-    <name>crm-root</name>
+    <name>airbrake-java</name>
     
     <url>http://consumerunited.bitbucket.org/${project.artifactId}</url>
    
